@@ -2,7 +2,12 @@ cmake_minimum_required(VERSION 3.10)
 
 project(h1_mj_description VERSION 1.0.0)
 
-find_package(mc_mujoco REQUIRED)
+#find_package(mc_mujoco REQUIRED)
+
+# Define MC_MUJOCO_SHARE_DESTINATION if not already defined
+if(NOT DEFINED MC_MUJOCO_SHARE_DESTINATION)
+  set(MC_MUJOCO_SHARE_DESTINATION "${CMAKE_INSTALL_PREFIX}/share/mc_mujoco")
+endif()
 
 option(SRC_MODE "Use files in the repository instead of installed files" OFF)
 
@@ -20,6 +25,6 @@ endif()
 configure_file(mc_mujoco/h1.in.yaml "${CMAKE_CURRENT_BINARY_DIR}/mc_mujoco/h1.yaml")
 install(FILES "${CMAKE_CURRENT_BINARY_DIR}/mc_mujoco/h1.yaml" DESTINATION "${MC_MUJOCO_SHARE_DESTINATION}")
 
-install(DIRECTORY meshes DESTINATION "${MC_MUJOCO_SHARE_DESTINATION}/H1" FILES_MATCHING PATTERN "*.STL")
+install(DIRECTORY meshes DESTINATION "${MC_MUJOCO_SHARE_DESTINATION}/H1" FILES_MATCHING PATTERN "*.stl")
 install(DIRECTORY pdgains DESTINATION "${MC_MUJOCO_SHARE_DESTINATION}/H1" FILES_MATCHING PATTERN "*.dat")
 install(DIRECTORY xml DESTINATION "${MC_MUJOCO_SHARE_DESTINATION}/H1" FILES_MATCHING PATTERN "*.xml")
