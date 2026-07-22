@@ -210,10 +210,6 @@
     <motor class="h1" name="right_elbow_joint_motor" joint="right_elbow_joint" ctrlrange="-18 18"/>
   </actuator>
 
-  <!-- <sensor>
-    <gyro name="imu-angular-velocity" site="imu" noise="5e-4" cutoff="34.9"/>
-    <accelerometer name="imu-linear-acceleration" site="imu" noise="1e-2" cutoff="157"/>
-  </sensor> -->
   <sensor>
     <gyro name="Accelerometer_gyro" site="imu"/>
     <accelerometer name="Accelerometer_accelerometer" site="imu"/>
